@@ -1,7 +1,7 @@
 {
-  "name": "boiler_plate",
+  "name": "algorithms",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -19,7 +19,6 @@
     "husky": "^8.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.8.0",
     "react-router-dom": "^6.9.0"
   },
   "devDependencies": {
@@ -35,6 +34,7 @@
     "@types/jest": "^29.4.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/react-syntax-highlighter": "^15.5.6",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
     "@vitejs/plugin-react": "^3.1.0",
@@ -50,6 +50,8 @@
     "jest": "^29.4.3",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
+    "react-icons": "^4.8.0",
+    "react-syntax-highlighter": "^15.5.0",
     "reactflow": "^11.7.0",
     "tailwindcss": "^3.2.7",
     "ts-jest": "^29.0.5",
