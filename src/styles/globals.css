@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --primary: #f9fafb; 
+    --secondary: #444444;
+    --major: #5EC955;
+    --minor: #FFF7E9;
+    --action: #5F9DF7;
+    --actionHover: #1746A2;
+    --disabled: #CCCCCC;
+    --ragRed: #f50b0b;
+    --ragAmber: #ffd000;
+    --ragGreen: #5EC955;
+  }
+  
+  [data-theme="dark"] {
+    --primary: #f9fafb; 
+    --secondary: #444444;
+    --major: #5EC955;
+    --minor: #FFF7E9;
+    --action: #5F9DF7;
+    --actionHover: #1746A2;
+    --disabled: #CCCCCC;
+    --ragRed: #f50b0b;
+    --ragAmber: #ffd000;
+    --ragGreen: #5EC955;
+  }
+}
+
+/* @layer utilities {
+  .bg-primary {
+    --bg-primary: #FF4136;
+    background-color: var(--bg-primary);
+  }
+  .bg-secondary {
+    --bg-secondary: #0074D9;
+    background-color: var(--bg-secondary);
+  }
+} */
+
+/*
+@layer components {
+	.navItem {
+		@apply
+		font-medium
+		p-2
+		rounded-lg
+	}
+
+  .navItem[aria-current="page"] {
+    @apply
+    text-primary
+    bg-minor;
+  }
+
+	.hamburgerItem {
+		@apply
+		inline-flex
+		justify-between
+		w-full
+		!text-left
+		cursor-pointer
+		p-4
+		text-xl
+		font-normal
+		text-secondary
+		hover:bg-tertiary
+		box-border
+		border-b
+		border-tertiary
+	}
+} 
+
+@layer base {
+	html {
+		@apply
+    font-redhat;
+  }
+
+  body {
+    @apply
+		min-w-[330px]
+		bg-primary
+		text-secondary
+		overflow-y-hidden
+		lg:overflow-y-scroll
+  }
+	h1{
+		@apply
+		font-bold
+	}
+} */
