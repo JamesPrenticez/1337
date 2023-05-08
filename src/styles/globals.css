@@ -30,6 +30,11 @@
   }
 }
 
+svg {
+  width: 25px;
+  height: 25px;
+}
+
 /* @layer utilities {
   .bg-primary {
     --bg-primary: #FF4136;

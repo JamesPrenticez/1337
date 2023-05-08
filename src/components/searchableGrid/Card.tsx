@@ -10,7 +10,7 @@ const Card = ({ item }: { item: IAlgorithmData}): ReactElement => {
     <Link to="/algorithms/two-number-sum">
       <motion.li 
         tabIndex={0}
-        className="relative rounded-md cursor-pointer select-none border-2 border-sky-500"
+        className="relative rounded-md cursor-pointer select-none border-2 border-sky-500 hover:bg-sky-400/20 transition-colors duration-400 ease-in-out"
         layoutId={item.id}
       >
         <div className="flex items-center h-full w-full rounded-md px-2 space-x-5">

@@ -17,6 +17,7 @@ import ReactFlow, {
 } from 'reactflow';
 
 import MyCustomNode from './MyCustomNode';
+import 'reactflow/dist/style.css';
 
 const nodeTypes: NodeTypes = {
   custom: MyCustomNode,
@@ -36,7 +37,7 @@ const initialNodes: Node[] = [
     id: '1',
     type: 'custom',
     data: { name: 'Jane Doe', job: 'CEO', emoji: '😎' },
-    position: { x: 0, y: 0 },
+    position: { x: -500, y: -500 },
   },
   {
     id: '2',
@@ -49,9 +50,10 @@ const initialNodes: Node[] = [
 
 const initialEdges: Edge[] = [
   {
-    id: '1-2',
+    id: '1->2',
     source: '1',
     target: '2',
+    animated: false,
   },
 ];
 
@@ -72,6 +74,8 @@ const FlowChart = ():ReactElement => {
     [setEdges]
   );
 
+  const proOptions = { hideAttribution: true };
+
   return (
     <ReactFlow
       nodes={nodes}
@@ -84,7 +88,7 @@ const FlowChart = ():ReactElement => {
       fitViewOptions={fitViewOptions}
       defaultEdgeOptions={defaultEdgeOptions}
       className="bg-teal-50"
-      
+      proOptions={proOptions}
     />
   );
 }
