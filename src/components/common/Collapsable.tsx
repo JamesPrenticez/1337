@@ -14,8 +14,8 @@ const Collapsible = ({title, time, space, children}: CollapsibleProps): ReactEle
   return (
       <div>
 
-        <div className="p-3 bg-gray-200 grid grid-cols-3 items-center w-full">
-          <h1 className='text-3xl'>{title}</h1>
+        <div className="p-3 flex bg-gray-200 items-center w-full space-x-2">
+          <h1 className='text-3xl grow'>{title}</h1>
           <h1 className='text-2xl font-medium ml-auto'>{time}</h1>
           <h1 className='text-2xl font-medium ml-auto'>{space}</h1>
           <div className='ml-auto'>
@@ -27,13 +27,13 @@ const Collapsible = ({title, time, space, children}: CollapsibleProps): ReactEle
           </div>
         </div>
 
-      {isOpen &&
-        <div>
-            <div className="p-3 bg-gray-100 flex justify-between items-center">
-              {children}
-            </div>
-        </div>
-      }
+        {isOpen &&
+          <div>
+              <div className="p-3 bg-gray-100">
+                {children}
+              </div>
+          </div>
+        }
 
       </div>
   )

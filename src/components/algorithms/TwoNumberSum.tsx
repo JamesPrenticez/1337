@@ -3,7 +3,19 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Collapsible from '../common/Collapsable';
 
+import LanguageSelect from '../common/SelectLanguage';
+
+// import twoNumberSumNestedLoopPY from '../../assets/python/twoNumberSum/twoNumberSumHashTable?raw'
+
+import twoNumberSumNestedLoopPY from '../../assets/python/twoNumberSum/twoNumberSumNestedLoop.py?raw';
+import twoNumberSumNestedLoopTS from '../../assets/typescript/twoNumberSum/twoNumberSumNestedLoop.ts?raw';
+
+import twoNumberSumHashTablePY from '../../assets/python/twoNumberSum/twoNumberSumHashTable.py?raw';
+import twoNumberSumHashTableTS from '../../assets/typescript/twoNumberSum/twoNumberSumHashTable.ts?raw';
+
+
 const TwoNumberSum = (): ReactElement => {
+  console.log(twoNumberSumNestedLoopPY)
   // const [option1Answer, setOption1Answer] = useState("")
   // const [array, setArray] = useState('[3, 5, -4, 8, 11, -1, 6]')
   // const [target, setTarget] = useState(10)
@@ -37,7 +49,7 @@ const TwoNumberSum = (): ReactElement => {
 
         <div className='max-w-7xl mx-auto my-5 h-[3px] bg-gradient-to-r from-gray-50 via-green-600 to-gray-50'></div> */}
 
-      {/* Hash Map */}
+      {/* Hash Table */}
       <Collapsible title='Hash Map - Two Number Sum' time='O(n)' space='O(n)'>
       <h2>Option 3:</h2>
         <p>The best option is to use a hash table which can be represented as a javascript object or a python dictionary</p>
@@ -49,41 +61,17 @@ const TwoNumberSum = (): ReactElement => {
         <p>y = 10 - x</p>
 
 
-        {/* Code */}
-        <SyntaxHighlighter language="javascript" style={docco}>
-          {` 
-            function option3(array, target){
-              let nums = {}
-              for(let i = 0; i < array.length; i++){
-                //Does our object/hash table contain (target - current number) aka 'y'? 
-                let potentialMatch = (target - array[i])
-                if(nums.hasOwnProperty(potentialMatch)){
-                  return [target - array[i], array[i]]
-                } else {
-                  nums[array[i]] = true
-                }
-              }
-              return [] //no answer
-            }
-          `}
-        </SyntaxHighlighter>
+        <LanguageSelect 
+          options={[
+            { lang: "javascript", algo: twoNumberSumHashTableTS },
+            { lang: "python", algo: twoNumberSumHashTablePY },
+          ]}
+        />
 
         {/* Code */}
         <SyntaxHighlighter language="javascript" style={docco}>
           {` 
-            const twoSum = (array, target) => {
-                let nums = {};
 
-                for (let i = 0; i < array.length; i++) {
-                    let potentialMatch = target - array[i];
-                    if (nums.hasOwnProperty(potentialMatch)) {
-                        return [nums[potentialMatch], i];
-                    } else {
-                        nums[array[i]] = i;
-                    }
-                }
-                return []; //no answer
-            };
           `}
         </SyntaxHighlighter>
 
@@ -118,18 +106,17 @@ const TwoNumberSum = (): ReactElement => {
         <p>We traverse the first array and every index we also traverse the secound array and check the sum. However, this is slow.</p>
 
         {/* Code */}
-        <SyntaxHighlighter language="javascript" style={docco}>
-          {` 
-            function option1(array, target){
-              for(let i = 0; i <= array.length; i++){
-                for(let j = 0; j < array.length; j++){
-                  if(array[i] != array[j] && array[i] + array[j] === target) 
-                  return [array[a], array[b]]
-                }
-              }
-            }
-          `}
-        </SyntaxHighlighter>
+        {/* <SyntaxHighlighter language="javascript" style={docco}>
+          {twoNumberSumNestedLoopTextTS}
+        </SyntaxHighlighter> */}
+
+        <LanguageSelect 
+          options={[
+            { lang: "javascript", algo: twoNumberSumNestedLoopTS },
+            { lang: "python", algo: twoNumberSumNestedLoopPY },
+          ]}
+        />
+
       </Collapsible>
 
 
