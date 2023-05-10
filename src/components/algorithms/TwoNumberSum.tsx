@@ -5,10 +5,11 @@ import Collapsible from '../common/Collapsable';
 
 import LanguageSelect from '../common/SelectLanguage';
 
-// import twoNumberSumNestedLoopPY from '../../assets/python/twoNumberSum/twoNumberSumHashTable?raw'
-
 import twoNumberSumNestedLoopPY from '../../assets/python/twoNumberSum/twoNumberSumNestedLoop.py?raw';
 import twoNumberSumNestedLoopTS from '../../assets/typescript/twoNumberSum/twoNumberSumNestedLoop.ts?raw';
+
+import twoNumberSumSortedLoopPY from '../../assets/typescript/twoNumberSum/twoNumberSumSortedLoop.py?raw';
+import twoNumberSumSortedLoopTS from '../../assets/typescript/twoNumberSum/twoNumberSumSortedLoop.ts?raw';
 
 import twoNumberSumHashTablePY from '../../assets/python/twoNumberSum/twoNumberSumHashTable.py?raw';
 import twoNumberSumHashTableTS from '../../assets/typescript/twoNumberSum/twoNumberSumHashTable.ts?raw';
@@ -79,7 +80,7 @@ const TwoNumberSum = (): ReactElement => {
         
       </Collapsible>
 
-      {/* Sorted Nested For Loop */}
+      {/* Sorted For Loop */}
       <Collapsible title='Sorted Nested For Loop - Two Number Sum' time='O(n log(n)' space='O(1)'>
         <h2>Option 2 :</h2>
           <p>We could sort the array first</p>
@@ -97,6 +98,15 @@ const TwoNumberSum = (): ReactElement => {
           <p>3 + 8 = 11 is less than the target sum so that means we more the left pointer again </p>
           <p>[-4, -1, 3, <b>5</b>, 6, <b>8</b>, 11]</p>
           <p>5 + 8 = 13 </p>
+
+          <LanguageSelect 
+          options={[
+            { lang: "javascript", algo: twoNumberSumSortedLoopTS },
+            { lang: "python", algo: twoNumberSumSortedLoopPY },
+          ]}
+        />
+
+
       </Collapsible>
 
       {/* Nested For Loop */}
@@ -104,11 +114,6 @@ const TwoNumberSum = (): ReactElement => {
         {/* Explanation */}
         <h2>How it works:</h2>
         <p>We traverse the first array and every index we also traverse the secound array and check the sum. However, this is slow.</p>
-
-        {/* Code */}
-        {/* <SyntaxHighlighter language="javascript" style={docco}>
-          {twoNumberSumNestedLoopTextTS}
-        </SyntaxHighlighter> */}
 
         <LanguageSelect 
           options={[
@@ -118,11 +123,6 @@ const TwoNumberSum = (): ReactElement => {
         />
 
       </Collapsible>
-
-
-
-
-
 
     </div>
   )
