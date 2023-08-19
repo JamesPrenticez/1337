@@ -1,16 +1,16 @@
 import React, { type ReactElement } from "react";
 import { motion } from "framer-motion";
 
-import { type IAlgorithmData } from '../../modals/IData'
+import { type IData } from '../../modals/IData'
 import { Link } from "react-router-dom";
 
-const Card = ({ item }: { item: IAlgorithmData}): ReactElement => {
+const Card = ({ item }: { item: IData}): ReactElement => {
 
   return (
-    <Link to="/algorithms/two-number-sum">
+    <Link to={`/algorithms/${item.slug}`}>
       <motion.li 
         tabIndex={0}
-        className="relative rounded-md cursor-pointer select-none border-2 border-sky-500 hover:bg-sky-400/20 transition-colors duration-400 ease-in-out"
+        className="relative bg-white rounded-md cursor-pointer select-none border-2 border-sky-500 hover:bg-sky-400/20 transition-colors duration-400 ease-in-out"
         layoutId={item.id}
       >
         <div className="flex items-center h-full w-full rounded-md px-2 space-x-5">

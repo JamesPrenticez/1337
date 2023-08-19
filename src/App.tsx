@@ -5,6 +5,7 @@ import Layout from "./components/layout/Layout";
 import Loading from "./components/common/Loading";
 import { SettingsProvider } from "./providers/settingsProvider";
 import { algorithmData } from "./constants/algorithmData";
+import Body from "./components/layout/Body";
 
 const Home = lazy(async () => await import('./pages/Home'));
 const Algorithms = lazy(async () => await import('./pages/Algorithms'));
@@ -21,7 +22,11 @@ const App = (): React.ReactElement => {
           <Route path="algorithms">
             <Route index={true} element={<Algorithms />} />
             {algorithmData.map((algorithm) => (
-              <Route key={algorithm.id} path={algorithm.slug} element={algorithm.component()} />
+              <Route key={algorithm.id} path={algorithm.slug} element={
+                <Body>
+                  {algorithm.component()}
+                </Body>
+              } />
             ))}
           </Route>
           <Route path="/roadmap" element={<RoadMap />} />

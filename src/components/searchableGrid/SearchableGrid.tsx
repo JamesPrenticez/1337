@@ -1,10 +1,10 @@
 import React, { useState, type ReactElement, type ChangeEvent } from "react";
-import { type IAlgorithmData } from '../../modals/IData'
+import { type IData } from '../../modals/IData'
 import Card from "./Card";
 
-const SearchableGrid = ({ data }: { data: IAlgorithmData[] }): ReactElement => {
+const SearchableGrid = ({ data }: { data: IData[] }): ReactElement => {
   const [searchValue, setSearchValue] = useState<string>("")
-  const [filteredData, setFilteredData] = useState<IAlgorithmData[]>(data);
+  const [filteredData, setFilteredData] = useState<IData[]>(data);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearchValue(e.target.value);

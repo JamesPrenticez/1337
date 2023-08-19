@@ -1,16 +1,18 @@
-import React, { type ReactElement } from "react";
+import React, { type ReactElement, type ReactNode } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-interface LayoutProps {
-  children: React.ReactNode;
+interface Props {
+  children: ReactNode;
 }
 
-function Layout({ children }: LayoutProps): ReactElement {
+const Layout = ({ children }: Props): ReactElement => {
   return (
     <>
       <Navbar />
-      <main className="min-h-screenNav w-full bg-gray-50">{children}</main>
+      <main className="min-h-screenNav w-full bg-gray-50">
+        {children}
+      </main>
       <Footer />
     </>
   );

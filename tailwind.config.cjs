@@ -21,6 +21,36 @@ module.exports = {
       "7xl": ['4.5rem', '5.2rem'],
     },
     extend:{
+      // typography: {
+      //       h1: {
+      //         fontSize: '2rem',
+      //         color: 'red',
+      //       },
+      //       'h2': {
+      //         fontSize: '2rem',
+      //         color: '#333',
+      //       },
+      //       'h3': {
+      //         fontSize: '2rem',
+      //         color: '#333',
+      //       },
+      //       'h4': {
+      //         fontSize: '2rem',
+      //         color: '#333',
+      //       },
+      //       'h5': {
+      //         fontSize: '2rem',
+      //         color: '#333',
+      //       },
+      //       'h6': {
+      //         fontSize: '2rem',
+      //         color: '#333',
+      //       },
+      //       'p': {
+      //         fontSize: '2rem',
+      //         color: '#333',
+      //       },
+      // },
       colors:{
         primary: "var(--primary)",
         secondary: "var(--secondary)",

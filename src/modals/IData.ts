@@ -1,6 +1,7 @@
-export interface IAlgorithmData {
+export interface IData {
   id: string;
   title: string;
+  status: boolean;
   img: string;
   difficulty: string;
   slug: string;

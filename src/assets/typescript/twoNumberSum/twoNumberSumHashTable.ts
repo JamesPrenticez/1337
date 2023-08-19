@@ -1,7 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const twoNumberSumHashTable = (array: number[], target: number): number[] => {
-  // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
-  const nums: { [key: number]: boolean } = {}; // Use an object with number keys instead of an array to track numbers
+export const twoNumberSumHashTable = (array: number[], target: number): number[] => {
+
+  // Use an object with number keys instead of an array to track numbers
+  const nums: { [key: number]: boolean } = {};
+  
   for (let i = 0; i < array.length; i++) {
     const potentialMatch = target - array[i];
     if (nums[potentialMatch]) {
@@ -11,5 +12,7 @@ const twoNumberSumHashTable = (array: number[], target: number): number[] => {
       nums[array[i]] = true;
     }
   }
+  
   return []; // Return an empty array for no match
 }
+

@@ -1,34 +1,30 @@
-import React, { type ReactElement } from 'react'
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import React, { useState, type ReactElement } from 'react'
+import { motion } from 'framer-motion';
 import Collapsible from '../common/Collapsable';
 
 import LanguageSelect from '../common/SelectLanguage';
 
-import twoNumberSumNestedLoopPY from '../../assets/python/twoNumberSum/twoNumberSumNestedLoop.py?raw';
-import twoNumberSumNestedLoopTS from '../../assets/typescript/twoNumberSum/twoNumberSumNestedLoop.ts?raw';
+import { twoNumberSumHashTable } from '../../assets/typescript/twoNumberSum/twoNumberSumHashTable.ts'
 
-import twoNumberSumSortedLoopPY from '../../assets/typescript/twoNumberSum/twoNumberSumSortedLoop.py?raw';
+import twoNumberSumNestedLoopTS from '../../assets/typescript/twoNumberSum/twoNumberSumNestedLoop.ts?raw';
+import twoNumberSumNestedLoopPY from '../../assets/python/twoNumberSum/twoNumberSumNestedLoop.py?raw';
+
 import twoNumberSumSortedLoopTS from '../../assets/typescript/twoNumberSum/twoNumberSumSortedLoop.ts?raw';
+import twoNumberSumSortedLoopPY from '../../assets/python/twoNumberSum/twoNumberSumSortedLoop.py?raw';
 
 import twoNumberSumHashTablePY from '../../assets/python/twoNumberSum/twoNumberSumHashTable.py?raw';
 import twoNumberSumHashTableTS from '../../assets/typescript/twoNumberSum/twoNumberSumHashTable.ts?raw';
 
 
 const TwoNumberSum = (): ReactElement => {
-  console.log(twoNumberSumNestedLoopPY)
-  // const [option1Answer, setOption1Answer] = useState("")
-  // const [array, setArray] = useState('[3, 5, -4, 8, 11, -1, 6]')
-  // const [target, setTarget] = useState(10)
 
   return (
     <div>
       <h1>Two Number Sum</h1>
       <a href="https://leetcode.com/problems/two-sum/" target='blank'>https://leetcode.com/problems/two-sum/</a>
 
-
       <h2>Explanation:</h2>
-      <p>This problem gives us an array of distinct numbers (meaning no number is repeated) and it also gives another interger the represents a target sum. The goal is then to write a function that searches the array and determines whether or not there is a pair of numbers the sums together to match the target interger.</p>
+      <p>This problem gives us an array of distinct numbers meaning no number is repeated and it also gives another interger the represents a target sum. The goal is then to write a function that searches the array and determines whether or not there is a pair of numbers the sums together to match the target interger.</p>
 
       <h2>Example:</h2>
       <p>[3, 5, -4, 8, 11, -1, 6], 10</p>
@@ -41,14 +37,7 @@ const TwoNumberSum = (): ReactElement => {
       </ul>
 
       <h2>Animaiton:</h2>
-      {/* <div className='p-3 text-3xl space-x-2'>
-          <input className="p-1 outline-none" placeholder="3, 5, -4, 8, 11, -1, 6" onChange={(e) => setArray("[" + e.target.value + "]")}/>
-          <input className="p-1 outline-none" placeholder={target} onChange={(e) => setTarget(e.target.value)}/>
-          <button className="p-1 bg-green-600 rounded" onClick={() => {setOption1Answer(option1(array, target))}}>Run</button>
-          <p className='inline'>{option1Answer}</p>
-        </div>
-
-        <div className='max-w-7xl mx-auto my-5 h-[3px] bg-gradient-to-r from-gray-50 via-green-600 to-gray-50'></div> */}
+      <AnimationTwoNumberSum />
 
       {/* Hash Table */}
       <Collapsible title='Hash Map - Two Number Sum' time='O(n)' space='O(n)'>
@@ -68,14 +57,6 @@ const TwoNumberSum = (): ReactElement => {
             { lang: "python", algo: twoNumberSumHashTablePY },
           ]}
         />
-
-        {/* Code */}
-        <SyntaxHighlighter language="javascript" style={docco}>
-          {` 
-
-          `}
-        </SyntaxHighlighter>
-
 
         
       </Collapsible>
@@ -127,5 +108,72 @@ const TwoNumberSum = (): ReactElement => {
     </div>
   )
 }
+
+const AnimationTwoNumberSum = (): ReactElement => {
+  const [result, setResult] = useState([]);
+  const [animations, setAnimations] = useState([]);
+
+  const array = [2, 8, 11, 15, 5, 5, 8, 7];
+  const target = 9;
+
+  const animateSearch = (): void => {
+    const nums = {};
+    const newAnimations = [];
+
+    const animateStep = (i: number) => {
+      if (i >= array.length) {
+        setResult([]);
+        setAnimations(newAnimations);
+        return;
+      }
+
+      const potentialMatch = target - array[i];
+      newAnimations.push(i); // Add index to animate
+
+      if (nums[potentialMatch]) {
+        setResult([potentialMatch, array[i]]);
+        setAnimations(newAnimations);
+        return;
+      } else {
+        nums[array[i]] = true;
+        setAnimations(newAnimations);
+      }
+
+      setTimeout(() => {
+        animateStep(i + 1);
+      }, 1000); // Adjust the delay (in milliseconds) to your desired animation speed
+    };
+
+    animateStep(0);
+  };
+
+  return (
+    <div>
+      <button
+        className="bg-blue-500 text-white py-2 px-4 rounded"
+        onClick={animateSearch}
+      >
+        Animate Search
+      </button>
+      <div className="flex mt-4">
+        {array.map((num, index) => (
+          <motion.div
+            key={index}
+            className={`w-10 h-10 flex items-center justify-center border m-1 ${
+              animations.includes(index) ? 'bg-green-500 text-white' : ''
+            }`}
+          >
+            {num}
+          </motion.div>
+        ))}
+      </div>
+      {result.length > 0 && (
+        <div className="mt-4">
+          Result: {result[0]} + {result[1]} = {target}
+        </div>
+      )}
+    </div>
+  );
+};
   
 export default TwoNumberSum
